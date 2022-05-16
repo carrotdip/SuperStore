@@ -1,3 +1,3 @@
 # SuperStore Analysis
 
-Click [here](https://public.tableau.com/views/SuperStore_16522243132880/Dashboard1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link) to go to the Tableau dashboard
+Tableau Dashboard by [State](https://public.tableau.com/app/profile/caroline.diep/viz/SuperStore2_16524047254490/Dashboard1) and [Region](https://public.tableau.com/app/profile/caroline.diep/viz/SuperStore3_16527447896010/Dashboard2)
