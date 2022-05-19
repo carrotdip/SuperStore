@@ -1,8 +1,8 @@
 # SuperStore Analysis
 
 ## Overview
-A superstore giant, which we will call SuperStore, is trying to revamp its business outlook and strategies. SuperStore wants to become a more specialized store, catered to its existing customers while attracting new ones. The superstore giant also would like insights on profit-inducing strategies from the existing product catalog, as its hoping to make a breakthrough on new kinds of products to sell.
-The purpose of this analysis was to analyze trends within the SuperStore dataset and identify actionable insights to create better informed business decisions. The dataset is from [Kaggle](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final) which contains order information from 2014-2017 of a super store giant, which we will call SuperStore. The dataset includes order/shipping dates, customer ids/names/segments, location in the form of regions/states/cities/postal codes, the category/sub-category/product names, as well as the sales, quantity, discounts, and profits from each and every sale over the years. 
+A superstore giant, which we will call SuperStore, is trying to revamp its business outlook and strategies. SuperStore wants to become a more specialized store, catered to its existing customers while attracting new ones. The superstore giant also would like insights on profit-inducing strategies from the existing product catalog, as its hoping to make a breakthrough on new kinds of products to sell.\
+The purpose of this analysis was to analyze trends within the SuperStore dataset and identify actionable insights to create better informed business decisions. The dataset is from [Kaggle](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final) which contains order information from 2014-2017 of a super store giant, which we will call SuperStore. The dataset includes order/shipping dates, customer ids/names/segments, location in the form of regions/states/cities/postal codes, the category/sub-category/product names, as well as the sales, quantity, discounts, and profits from each and every sale over the years. \
 In this analysis, the differences between the regions or states that lead to differing profitabilities will be explored, while drawing actionable insights on how to increase revenue throughout the country. This analysis also evaluates the profitability of items sold at the SuperStore to generate valuable insights on how to proceed forward and bring enlightenment in the development of the next business plan or venture.
 
 ## Tableau Dashboard
@@ -19,10 +19,12 @@ The following query visualizes that the Tables and Bookcases sub-categories have
 ![txt](https://github.com/carrotdip/SuperStore/blob/e6991284ec152d06c4fce3cfcfa7551df45d05d7/Images/tablesbookcasesbyregion.png)\
 Also, Copiers, Phones, and Accessories in the Technology category have fared really well across all regions.
 ![txt](https://github.com/carrotdip/SuperStore/blob/124226894147f38f8eff58bd4734bbcb57b49588/Images/cpabyregion.png)\
-To get to the item-specific level, several queries were ran to determine which specific items, and their product_ids, were profitable:\
+To get to the item-specific level in the Tables and Bookcases sub-categories, several queries were ran to determine which specific items, and their product_ids, were profitable:\
 ![txt](https://github.com/carrotdip/SuperStore/blob/cf1c6597204f1b03cfceba652acef8c6aed2ce0f/Images/profitablebooktables.png)\
 And which items were not:
 ![txt](https://github.com/carrotdip/SuperStore/blob/cf1c6597204f1b03cfceba652acef8c6aed2ce0f/Images/unprofitablebooktables.png)\
+The same was done for the specific items in the Copiers, Phones, and Accessories in the Technology category. Here are the top 10 profitable items across all 4 regions:
+And the non-profitable:
 ## Conclusion
 1. 
 
