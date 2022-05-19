@@ -14,5 +14,8 @@ While each Furniture category is not in the negative, the profitability of this 
 To dig deeper into which items are not profitable, the sub-categories will be explored. In the following query, it is clear that Tables and Bookcases sub-categories specifically are bringing down the profitability of the entire category: \
 ![txt](https://github.com/carrotdip/SuperStore/blob/75760d6b86f2df5fbb0ff70f0042af4c55e8401a/Images/tpbycategoryandsubcategory.png) \
 On the flip side, this query also shows that the Technology category, more specifically the Copiers, Phones, and Accessories sub-categories, have been proven to have high profitability.
+The following query shows that the Tables and Bookcases sub-categories have not fared well across all regions. 
+![txt](https://github.com/carrotdip/SuperStore/blob/e6991284ec152d06c4fce3cfcfa7551df45d05d7/Images/tablesbookcasesbyregion.png)\
+
 ## Results
 ## Conclusion
