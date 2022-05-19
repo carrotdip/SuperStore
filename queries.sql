@@ -1,5 +1,4 @@
--- View Table
-SELECT * FROM superstore;
+-- Exploration of dataset
 
 -- VIEW TOP 25 $ PRODUCTS
 SELECT product_id, category, sub_category, product_name, SUM(profit)
@@ -16,14 +15,14 @@ ORDER BY SUM(profit) ASC
 LIMIT 25;
 
 -- VIEW TOP 25 CUSTOMERS
-SELECT customer_name, SUM (profit), segment
+SELECT customer_name, segment, SUM (profit)
 FROM superstore
 GROUP BY customer_name, segment
 ORDER BY SUM(profit) DESC
 LIMIT 25;
 
 -- VIEW TOP 25 CORPORATE CUSTOMERS
-SELECT customer_name, SUM (profit)
+SELECT customer_name, SUM (profit) as total_profit
 FROM superstore
 WHERE segment = 'Corporate'
 GROUP BY customer_name
@@ -31,19 +30,20 @@ ORDER BY SUM(profit) DESC
 LIMIT 25;
 
 -- VIEW TOP 25 CONSUMER CUSTOMERS
-SELECT customer_name, SUM (profit)
+SELECT customer_name, SUM (profit) as total_profit
 FROM superstore
 WHERE segment = 'Consumer'
 GROUP BY customer_name
 ORDER BY SUM(profit) DESC
 LIMIT 25;
 
---------
---------
-
-
--- View entirety of data
-SELECT * FROM superstore;
+-- VIEW TOP 25 HOME OFFICE CUSTOMERS
+SELECT customer_name, SUM (profit) as total_profit
+FROM superstore
+WHERE segment = 'Home Office'
+GROUP BY customer_name
+ORDER BY SUM(profit) DESC
+LIMIT 25;
 
 -- View total sales, quantities, & profits over the years
 SELECT EXTRACT(year FROM order_date) AS order_year, SUM(sales) AS total_sales, SUM(Quantity) AS Total_Quantity, SUM(profit) AS Total_Profit
@@ -51,6 +51,14 @@ FROM superstore
 GROUP BY 1
 ORDER BY 1 ASC;
 -- The store's sales and profit trends seems to be going in the right direction, profits and sales are increasing yearly
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+-- Analysis for README
+
+-- View entirety of data
+SELECT * FROM superstore;
 
 -- Total sales, discounts, and profits by state
 SELECT state, SUM(sales) as total_sales, SUM(discount) AS total_discount, SUM(profit) AS total_profit
@@ -70,6 +78,13 @@ ORDER BY total_profit;
 -- "Supplies" in Office Supplies have also lost money, need to do more digging into it
 -- Copiers, Phones, and Accessories sub-categories in Technology category have generated the most profit
 -- Binders, Paper, Storage, and Appliances in Office Supplies have also done well
+
+-- View total_profits by region
+SELECT region, category, SUM(profit) as total_profit
+FROM superstore
+GROUP BY region, category
+ORDER BY region, category, total_profit;
+-- Furniture category is lacking in profits compared to the others, and it is doing worse in Central > East > South > West
 
 -- How has tables and bookcases fared by region?
 SELECT region, category, sub_category, SUM(profit) as total_profit
