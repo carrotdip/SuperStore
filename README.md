@@ -5,6 +5,8 @@ In this analysis, the differences between the regions or states that lead to dif
 ## Tableau Dashboard
 Click [here](https://public.tableau.com/app/profile/caroline.diep/viz/BluOrangeSuperStore/Dashboard4) to view the interactive Business Intelligence (BI) Tableau dashboard. Please view in fullscreen mode.
 ## Statistical Analysis
-From a quick exploration of the SuperStore BI dashboard, it is abundantly clear that the East and West regions are generating the most profit. 
+From a quick exploration of the SuperStore BI dashboard, it is abundantly clear that the East and West regions are generating the most profit, whereas the Central and South regions seem to be losing profits. It also appears that the Furniture category, more specifically the Tables and Bookcases, has been generating the least profit, which is confirmed with the following SQL query: \
+![txt](https://github.com/carrotdip/SuperStore/blob/75760d6b86f2df5fbb0ff70f0042af4c55e8401a/Images/tpbycategoryandsubcategory.png) \
+This query also shows that the Technology category, more specifically the Copiers, Phones, and Accessories sub-categories, have been generating the most profit. 
 ## Results
 ## Conclusion
