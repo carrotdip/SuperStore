@@ -7,15 +7,19 @@ In this analysis, the differences between the regions or states that lead to dif
 ## Tableau Dashboard
 Click [here](https://public.tableau.com/app/profile/caroline.diep/viz/BluOrangeSuperStore/Dashboard4) to view the interactive Business Intelligence (BI) Tableau dashboard. Please view in fullscreen mode.
 
-## Statistical Analysis
+## Results
 From a quick exploration of the SuperStore BI dashboard, it is abundantly clear that the East and West regions are more profitable than the Central and South regions. It also appears that the Furniture category is not performing well, as it has consistent negative values in total profits while the other categories do not share this trend. The following SQL query confirms this: \
 ![txt](https://github.com/carrotdip/SuperStore/blob/e68cfc19499a1df3de0bed241a69734e104c5d74/Images/tpbyregioncategory.png)\
 While each Furniture category is not in the negative, the profitability of this particular category seems to not be performing as well as the others. The profitability of the Furniture category in the Central and East regions seems to be exceptionally low when comparing profits within a region.
 To dig deeper into which items are not profitable, the sub-categories will be explored. In the following query, it is clear that Tables and Bookcases sub-categories specifically are bringing down the profitability of the entire category: \
 ![txt](https://github.com/carrotdip/SuperStore/blob/75760d6b86f2df5fbb0ff70f0042af4c55e8401a/Images/tpbycategoryandsubcategory.png) \
 On the flip side, this query also shows that the Technology category, more specifically the Copiers, Phones, and Accessories sub-categories, have been proven to have high profitability.
-The following query shows that the Tables and Bookcases sub-categories have not fared well across all regions. 
+The following query visualizes that the Tables and Bookcases sub-categories have not fared well across all regions. 
 ![txt](https://github.com/carrotdip/SuperStore/blob/e6991284ec152d06c4fce3cfcfa7551df45d05d7/Images/tablesbookcasesbyregion.png)\
+Also, Copiers, Phones, and Accessories in the Technology category have fared really well across all regions.
+![txt](https://github.com/carrotdip/SuperStore/blob/124226894147f38f8eff58bd4734bbcb57b49588/Images/cpabyregion.png)\
+To get to the item-specific level, several queries were ran to determine which specific items, and their product_ids, were profitable:
 
-## Results
+And which items were not:
 ## Conclusion
+1. 
