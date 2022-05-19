@@ -24,7 +24,9 @@ To get to the item-specific level in the Tables and Bookcases sub-categories, se
 And which items were not:
 ![txt](https://github.com/carrotdip/SuperStore/blob/cf1c6597204f1b03cfceba652acef8c6aed2ce0f/Images/unprofitablebooktables.png)\
 The same was done for the specific items in the Copiers, Phones, and Accessories in the Technology category. Here are the top 10 profitable items across all 4 regions:
+![txt](https://github.com/carrotdip/SuperStore/blob/482a11b11fa0e337e0b19286bf3b0805707b2b3a/Images/profitablecpa.png)
 And the non-profitable:
+![txt](https://github.com/carrotdip/SuperStore/blob/482a11b11fa0e337e0b19286bf3b0805707b2b3a/Images/unprofitablecpa.png)
 ## Conclusion
 1. 
 
