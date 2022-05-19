@@ -11,12 +11,14 @@ In this analysis, the differences between the regions or states that lead to dif
 Click [here](https://public.tableau.com/app/profile/caroline.diep/viz/BluOrangeSuperStore/Dashboard4) to view the interactive Business Intelligence (BI) Tableau dashboard. Please view in fullscreen mode.
 
 ## Results
+
 ### Regional Analysis
-From a quick exploration of the SuperStore BI dashboard, it is abundantly clear that the East and West regions are more profitable than the Central and South regions.
-It was found that some states, particularly Southern and Central states, have had an abnormally large number of discounts compared to their Eastern and Western counterparts.
+From a quick exploration of the SuperStore BI dashboard, it is abundantly clear that the East and West regions are more profitable than the Central and South regions. The Eastern and Western regions of the US are higher in almost every metric (whether that be sales, quantity purchased, and profits) except for one: discounts.\
+It was found that some states, particularly Southern and Central states, have had an abnormally large number of discounts compared to their Eastern and Western counterparts (discounts is blown up for easier readability).
 ![txt](https://github.com/carrotdip/SuperStore/blob/158783c61894cfbcfa9fa54527c3f8dd3633e555/Images/stackeddiscountprofit.png)\
 There is an unsurprising negative correlation between the two variables, discount and profit, shown with the following joint plot:\
 ![txt](https://github.com/carrotdip/SuperStore/blob/158783c61894cfbcfa9fa54527c3f8dd3633e555/Images/discountprofitjp.png)\
+
 ### Inventory Analysis
 To get a better idea of the best store catalog, the following analysis was done on the category, sub-category, and item level. The BI dashboard visualization shows that the Furniture category is not performing well, as it has consistent negative values in total profits while the other categories do not share this trend. The following SQL query confirms this: \
 ![txt](https://github.com/carrotdip/SuperStore/blob/e68cfc19499a1df3de0bed241a69734e104c5d74/Images/tpbyregioncategory.png)\
@@ -36,7 +38,8 @@ The same was done for the specific items in the Copiers, Phones, and Accessories
 ![txt](https://github.com/carrotdip/SuperStore/blob/482a11b11fa0e337e0b19286bf3b0805707b2b3a/Images/profitablecpa.png)
 And the non-profitable:
 ![txt](https://github.com/carrotdip/SuperStore/blob/482a11b11fa0e337e0b19286bf3b0805707b2b3a/Images/unprofitablecpa.png)
-## Conclusion
-1. 
 
-Drawbacks: The SuperStore dataset lacks cost, return information.
+## Conclusion
+1. Introduce new products once unprofitable items are expunged from catalog list.
+
+Drawbacks: The SuperStore dataset lacks cost, return information, limiting the types of analysis able to be performed.
