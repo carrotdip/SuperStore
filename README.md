@@ -18,9 +18,10 @@ It was found that some states, particularly Southern and Central states, have ha
 ![txt](https://github.com/carrotdip/SuperStore/blob/158783c61894cfbcfa9fa54527c3f8dd3633e555/Images/stackeddiscountprofit.png)\
 There is an unsurprising negative correlation between the two variables, discount and profit, shown with the following joint plot:\
 ![txt](https://github.com/carrotdip/SuperStore/blob/158783c61894cfbcfa9fa54527c3f8dd3633e555/Images/discountprofitjp.png)\
+Although the reason these states have an ostensibly aberrant amount of discounts, it is safe to say that profitability of these states will increase with less discounts, particularly discounts greater than 0.4. 
 
 ### Inventory Analysis
-To get a better idea of the best store catalog, the following analysis was done on the category, sub-category, and item level. The BI dashboard visualization shows that the Furniture category is not performing well, as it has consistent negative values in total profits while the other categories do not share this trend. The following SQL query confirms this: \
+To get a better idea of the best store catalog for SuperStore's new image, the following analysis was done on the category, sub-category, and item level. The BI dashboard visualization shows that the Furniture category is not performing well, as it has consistent negative values in total profits while the other categories do not share this trend. The following SQL query confirms this: \
 ![txt](https://github.com/carrotdip/SuperStore/blob/e68cfc19499a1df3de0bed241a69734e104c5d74/Images/tpbyregioncategory.png)\
 While each Furniture category is not in the negative, the profitability of this particular category seems to not be performing as well as the others. Alternately, the Technology category appears to be performing exceptionally well. The profitability of the Furniture category in the Central and East regions seems to be abnormally low when comparing profits within a region, and that of the Technology category seems to be satisfactory throughout.
 To dig deeper into which items are profitable vs. non-profitable, the sub-categories will be explored. In the following query, it is clear that Tables and Bookcases sub-categories specifically are bringing down the profitability of the entire category: \
