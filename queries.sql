@@ -96,6 +96,81 @@ GROUP BY region, category, sub_category
 ORDER BY region, total_profit;
 -- Tables & Bookcases have not done well in ALL regions (across the board), best to remove them from store catalog/discontinue selling them
 
+-- What specific items in tables/bookcases have not performed well?
+SELECT product_id, product_name, SUM(profit) AS total_profit
+FROM superstore
+WHERE category = 'Furniture'
+AND sub_category IN ('Bookcases','Tables')
+GROUP BY product_id, product_name
+HAVING SUM(profit) < 0
+AND COUNT(region)  = 4
+ORDER BY SUM(profit);
+
+-- Which items performed well?
+SELECT product_id, product_name, SUM(profit) AS total_profit
+FROM superstore
+WHERE category = 'Furniture'
+AND sub_category IN ('Bookcases','Tables')
+GROUP BY product_id, product_name
+HAVING SUM(profit) > 0
+AND COUNT(region)  = 4
+ORDER BY SUM(profit) DESC;
+
+-- Which Furniture items performed well across all 4 regions?
+SELECT sub_category,product_id, product_name, SUM(profit) AS total_profit
+FROM superstore
+WHERE category = 'Furniture'
+GROUP BY sub_category, product_id, product_name
+HAVING SUM(profit) > 0
+AND COUNT(region)  = 4
+ORDER BY sub_category, SUM(profit) DESC;
+
+-- Which Furniture items did not perform well across all 4 regions?
+SELECT sub_category, product_id, product_name, SUM(profit) AS total_profit
+FROM superstore
+WHERE category = 'Furniture'
+GROUP BY sub_category, product_id, product_name
+HAVING SUM(profit) < 0
+AND COUNT(region)  = 4
+ORDER BY sub_category, SUM(profit);
+
+-- Which Technology items performed well across all 4 regions?
+SELECT sub_category,product_id, product_name, SUM(profit) AS total_profit
+FROM superstore
+WHERE category = 'Technology'
+GROUP BY sub_category, product_id, product_name
+HAVING SUM(profit) > 0
+AND COUNT(region)  = 4
+ORDER BY sub_category, SUM(profit) DESC;
+
+-- Which Technology items did not perform well across all 4 regions?
+SELECT sub_category, product_id, product_name, SUM(profit) AS total_profit
+FROM superstore
+WHERE category = 'Technology'
+GROUP BY sub_category, product_id, product_name
+HAVING SUM(profit) < 0
+AND COUNT(region)  = 4
+ORDER BY sub_category, SUM(profit);
+
+
+-- Which Office Supplies items performed well across all 4 regions?
+SELECT sub_category,product_id, product_name, SUM(profit) AS total_profit
+FROM superstore
+WHERE category = 'Office Supplies'
+GROUP BY sub_category, product_id, product_name
+HAVING SUM(profit) > 0
+AND COUNT(region)  = 4
+ORDER BY sub_category, SUM(profit) DESC;
+
+-- Which Office Supplies items did not perform well across all 4 regions?
+SELECT sub_category, product_id, product_name, SUM(profit) AS total_profit
+FROM superstore
+WHERE category = 'Office Supplies'
+GROUP BY sub_category, product_id, product_name
+HAVING SUM(profit) < 0
+AND COUNT(region)  = 4
+ORDER BY sub_category, SUM(profit);
+
 -- What supplies in office supplies have done well/bad?
 SELECT product_name, SUM(profit) AS total_profit
 FROM superstore
