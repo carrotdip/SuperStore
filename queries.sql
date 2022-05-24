@@ -203,29 +203,6 @@ GROUP BY region, category, sub_category
 ORDER BY total_profit;
 -- There is a small loss (-$2638) from appliances in office supplies in Central region, everything else is in the green
 
--- Why is Texas, Ohio, and Pennsylvania losing money?
-SELECT category, sub_category, product_name, AVG(discount) as avg_discount, SUM(profit) as total_profit
-FROM superstore
-WHERE state IN ('Texas','Ohio','Pennsylvania')
-GROUP BY category,sub_category, product_name
-ORDER BY total_profit;
--- Compare to California, New York, and Michigan
-SELECT category, sub_category, product_name, AVG(discount) as avg_discount, SUM(profit) as total_profit
-FROM superstore
-WHERE state IN ('California','New York','Michigan')
-GROUP BY category,sub_category, product_name
-ORDER BY total_profit;
--- we already know this, but losses for profitable states are mainly in Furniture (tables, bookcases, and chairs)
--- We give average of 0.3 discounts to profitable states
-SELECT category, sub_category, product_name, AVG(discount) as avg_discount, SUM(profit) as total_profit
-FROM superstore
-WHERE state IN ('Texas','Ohio','Pennsylvania')
-AND category NOT IN ('Furniture')
-GROUP BY category,sub_category, product_name
-ORDER BY total_profit;
--- losses for non-profitable states 
--- We have given an average or 0.65 discounts to non-profitable states
-
 -- Technology - Machines by Region
 SELECT region, SUM(profit) AS total_profit
 FROM superstore
@@ -247,7 +224,7 @@ SELECT * FROM discount_profit_table;
 SELECT table_name, column_name, data_type
 FROM information_schema.columns
 WHERE table_name = 'discount_profit_table';
--- Drop row if created accidentally
+-- Drop row if it already exists
 ALTER TABLE discount_profit_table
 DROP COLUMN discount_profit_ratio;
 -- Add column
@@ -256,14 +233,83 @@ ADD COLUMN discount_profit_ratio FLOAT;
 -- Set values in column
 UPDATE discount_profit_table SET discount_profit_ratio=(total_discount/total_profit)*100;
 -- View updated table	
-SELECT region, total_discount, total_profit, ROUND(discount_profit_ratio::numeric,5)
+SELECT region, total_discount, total_profit, ROUND(discount_profit_ratio::numeric,5) AS discount_profit_ratio
 FROM discount_profit_table
 ORDER BY discount_profit_ratio DESC;
 
 -- Why are we losing money with furniture sales?
-SELECT region, SUM(discount) AS total_discount, SUM(profit) AS total_profit
+SELECT region, SUM(discount)/SUM(quantity) AS total_discount_per_sale, SUM(profit) AS total_profit
 FROM superstore
 WHERE category = 'Furniture'
 GROUP BY region
-ORDER BY region, SUM(discount), SUM(profit);
+ORDER BY region, SUM(profit);
 
+-- Customer base by region
+CREATE TABLE customer_table AS
+	SELECT region, 
+		COUNT(CASE WHEN segment='Consumer' THEN 1 END) AS consumer_count,
+		COUNT(CASE WHEN segment='Corporate' THEN 1 END) AS corporate_count,
+		COUNT(CASE WHEN segment='Home Office' THEN 1 END) AS homeoffice_count
+	FROM superstore
+	GROUP BY region;
+-- View customer table
+SELECT * FROM customer_table;
+-- Describe customer table
+SELECT table_name, column_name, data_type
+FROM information_schema.columns
+WHERE table_name = 'customer_table';
+-- Drop column if it already exists
+ALTER TABLE customer_table
+DROP COLUMN total_customers;
+-- Add column
+ALTER TABLE customer_table
+ADD COLUMN total_customers FLOAT;
+-- Set values in new column
+UPDATE customer_table SET total_customers = consumer_count + corporate_count + homeoffice_count;
+-- View customer table
+SELECT * FROM customer_table;
+
+
+-- DROP TABLE if exists
+DROP TABLE metrics_table_by_region;
+-- numeric metrics descriptive table by region
+CREATE TABLE metrics_table_by_region AS
+	SELECT region, SUM(discount) AS total_discount, SUM(quantity) AS total_q_sold, 
+	SUM(sales) AS total_sales, SUM(profit) AS total_profit
+	FROM superstore
+	GROUP BY region;
+-- Create new column for profit ratio (PROFIT/SALES)
+ALTER TABLE metrics_table_by_region
+ADD COLUMN profit_ratio FLOAT;
+-- Set values
+UPDATE metrics_table_by_region
+SET profit_ratio = total_profit/total_sales*100
+-- View table
+SELECT region, ROUND(total_discount::numeric,2) AS total_discount,
+	total_q_sold,
+	ROUND(total_sales::numeric,2) AS total_sales,
+	ROUND(total_profit::numeric,2) AS total_profit,
+	ROUND(profit_ratio::numeric,2) AS profit_ratio
+FROM metrics_table_by_region
+ORDER BY profit_ratio DESC;
+
+
+-- Drop table if it exists
+DROP TABLE customer_segment_table;
+-- Discounts and profits per customer segment
+CREATE TABLE customer_segment_table AS
+	SELECT region, segment, COUNT(segment) as total_customers, SUM(discount) AS total_discount, SUM(quantity) AS total_q_sold, SUM(sales) as total_sales, SUM(profit) AS total_profit
+	FROM superstore
+	GROUP BY region, segment
+	ORDER BY region, segment;
+-- View table
+SELECT * FROM customer_segment_table;
+-- 
+
+-- Ensure data quality
+SELECT SUM(total_customers)
+FROM customer_segment_table;
+-- = 9994
+SELECT SUM(total_customers)
+FROM customer_table;
+-- = 9994

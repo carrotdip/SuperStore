@@ -3,7 +3,7 @@
 ## Overview
 A superstore giant, which we will call SuperStore, is trying to revamp its business outlook and strategies. SuperStore wants to become a more specialized store, catered to its existing customers while attracting new ones. The superstore giant also would like insights on profit-inducing strategies from the existing product catalog, as its hoping to make a breakthrough on new kinds of products to sell.\
 \
-The purpose of this analysis was to analyze trends within the SuperStore dataset and identify actionable insights to create better informed business decisions. The dataset is from [Kaggle](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final) which contains order information from 2014-2017 of a super store giant, which we will call SuperStore. The dataset includes order/shipping dates, customer ids/names/segments, location in the form of regions/states/cities/postal codes, the category/sub-category/product names, as well as the sales, quantity, discounts, and profits from each and every sale over the years. \
+The purpose of this analysis was to analyze trends within the SuperStore dataset and identify actionable insights to create better informed business decisions. The dataset is from [Kaggle](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final) which contains order information from 2014-2017 from SuperStore. The dataset includes order/shipping dates, customer ids/names/segments, location in the form of regions/states/cities/postal codes, the category/sub-category/product names, as well as the sales, quantity, discounts, and profits from each and every sale over the years. \
 \
 In this analysis, the differences between the regions or states that lead to differing profitabilities will be explored, while drawing actionable insights on how to increase revenue throughout the country. This analysis also evaluates the profitability of items sold at the SuperStore to generate valuable insights on how to proceed forward and bring enlightenment in the development of the next business plan or venture.
 
@@ -13,14 +13,16 @@ Click [here](https://public.tableau.com/app/profile/caroline.diep/viz/BluOrangeS
 ## Results
 
 ### Regional Analysis
-From a quick exploration of the SuperStore BI dashboard, it is abundantly clear that the East and West regions are more profitable than the Central and South regions. The Eastern and Western regions of the US are higher in almost every metric (whether that be sales, quantity purchased, and profits) except for one: discounts.\
+From a quick exploration of the SuperStore BI dashboard, it is abundantly clear that the East and West regions are more profitable than the Central and South regions. The Eastern and Western regions of the US are higher in almost every numerical metric (whether that be sales, quantity purchased, and profits) except for one: discounts.\
+This can be further visualized with this SQL query:\
+![txt](INSERT URL HERE)
 It was found that some states, particularly Southern and Central states, have had an abnormally large number of discounts compared to their Eastern and Western counterparts (discounts is blown up for easier readability).
 ![txt](https://github.com/carrotdip/SuperStore/blob/158783c61894cfbcfa9fa54527c3f8dd3633e555/Images/stackeddiscountprofit.png)\
-The following SQL query also displays the discrepancy in the relationship between total discounts and profits. It is clear that the Central region has had an exceptionally larger ratio between discounts and profits.
+The following SQL query also displays the discrepancy in the relationship between total discounts and profits. It is clear that the Central region has had an exceptionally larger ratio between discounts and profits. The reason for this discrepancy should be addressed in order to increase profitability of the lacking regions.
 ![txt](https://github.com/carrotdip/SuperStore/blob/913ababa94cb47353596f2be025ecb86bd4ff5b3/Images/discountprofitratio.png)\
 There is an unsurprising negative correlation between the two variables, discount and profit, shown with the following joint plot:\
 ![txt](https://github.com/carrotdip/SuperStore/blob/158783c61894cfbcfa9fa54527c3f8dd3633e555/Images/discountprofitjp.png)\
-Although the reason these states have had an ostensibly aberrant amount of discounts, it is safe to say that profitability of these states will increase with less discounts, particularly discounts greater than 0.4. 
+Although the reason these states have had an ostensibly aberrant amount of discounts is unknown, it is safe to say that profitability of these states or regions will increase with less discounts, particularly discounts greater than 0.4. 
 To delve deeper into how profits are affected by the category or sub_category of an item, an inventorial analysis will be performed.
 
 ### Inventory Analysis
@@ -44,6 +46,8 @@ And the non-profitable:
 ![txt](https://github.com/carrotdip/SuperStore/blob/482a11b11fa0e337e0b19286bf3b0805707b2b3a/Images/unprofitablecpa.png)
 
 ## Conclusion
-1. Introduce new products once unprofitable items are expunged from catalog list.
+1. Reduce discounts over 0.4, particularly in the Central region.
+2. Introduce new re-branding products* once unprofitable items are expunged from catalog list.
 
-Drawbacks: The SuperStore dataset lacks cost, return information, limiting the types of analysis able to be performed.
+Drawbacks: The SuperStore dataset lacks cost, return information, limiting the types of analysis able to be performed. 
+*An additional dataset with market trends should be analyzed to decide which products/markets the SuperStore should focus its rebranding on.
