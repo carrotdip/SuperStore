@@ -15,7 +15,8 @@ Click [here](https://public.tableau.com/app/profile/caroline.diep/viz/BluOrangeS
 ### Regional Analysis
 From a quick exploration of the SuperStore BI dashboard, it is abundantly clear that the East and West regions are more profitable than the Central and South regions. The Eastern and Western regions of the US are higher in almost every numerical metric (whether that be sales, quantity purchased, and profits) except for one: discounts.\
 This can be further visualized with this SQL query:\
-![txt](INSERT URL HERE)
+![txt](https://github.com/carrotdip/SuperStore/blob/d505062c305b99dc7eeb73af9f96c19860a88c29/Images/metrics_table.png)\
+One can see a downward trend starts to form with the total discounts, quantity sold, sales, profits, and profit ratio from the West, East, and South regions, and once it reaches the Central region, there is a disparity between these metrics.\
 It was found that some states, particularly Southern and Central states, have had an abnormally large number of discounts compared to their Eastern and Western counterparts (discounts is blown up for easier readability).
 ![txt](https://github.com/carrotdip/SuperStore/blob/158783c61894cfbcfa9fa54527c3f8dd3633e555/Images/stackeddiscountprofit.png)\
 The following SQL query also displays the discrepancy in the relationship between total discounts and profits. It is clear that the Central region has had an exceptionally larger ratio between discounts and profits. The reason for this discrepancy should be addressed in order to increase profitability of the lacking regions.
