@@ -152,7 +152,6 @@ HAVING SUM(profit) < 0
 AND COUNT(region)  = 4
 ORDER BY sub_category, SUM(profit);
 
-
 -- Which Office Supplies items performed well across all 4 regions?
 SELECT sub_category,product_id, product_name, SUM(profit) AS total_profit
 FROM superstore
@@ -236,28 +235,35 @@ GROUP BY region
 ORDER BY total_profit;
 -- losses overweigh profits in this sub_category in each region except for East
 
--- What products is the East selling that the West, Central, and South regions are not?
-SELECT product_id, product_name, SUM(profit) AS total_profit
-FROM superstore
-WHERE category = 'Technology'
-AND sub_category = 'Machines'
-AND region = 'East'
-GROUP BY product_id, product_name
-ORDER BY total_profit DESC;
-
--- How are these items faring in the other regions?
-SELECT region, product_id, product_name, SUM(profit) AS total_profit
-FROM superstore
-WHERE product_id IN ('TEC-MA-10003979', 'TEC-MA-10001047', 'TEC-MA-10000045', 'TEC-MA-10001127', 'TEC-MA-10002927')
-AND region NOT IN ('East')
-GROUP BY region, product_id, product_name
-ORDER BY total_profit DESC;
--- There have only been orders of one item "TEC-MA-10001127" in the South with a positive profit margin
+-- View total discounts per region
+CREATE TABLE discount_profit_table AS
+	SELECT region, SUM(discount) AS total_discount, SUM(profit) AS total_profit
+	FROM superstore
+	GROUP BY region
+	ORDER BY region, SUM(discount), SUM(profit);
+-- View created table	
+SELECT * FROM discount_profit_table;
+-- Describe the new table
+SELECT table_name, column_name, data_type
+FROM information_schema.columns
+WHERE table_name = 'discount_profit_table';
+-- Drop row if created accidentally
+ALTER TABLE discount_profit_table
+DROP COLUMN discount_profit_ratio;
+-- Add column
+ALTER TABLE discount_profit_table 
+ADD COLUMN discount_profit_ratio FLOAT;
+-- Set values in column
+UPDATE discount_profit_table SET discount_profit_ratio=(total_discount/total_profit)*100;
+-- View updated table	
+SELECT region, total_discount, total_profit, ROUND(discount_profit_ratio::numeric,5)
+FROM discount_profit_table
+ORDER BY discount_profit_ratio DESC;
 
 -- Why are we losing money with furniture sales?
-
-SELECT state
+SELECT region, SUM(discount) AS total_discount, SUM(profit) AS total_profit
 FROM superstore
-WHERE region = 'West'
-GROUP BY state;
+WHERE category = 'Furniture'
+GROUP BY region
+ORDER BY region, SUM(discount), SUM(profit);
 
