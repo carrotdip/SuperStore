@@ -24,9 +24,10 @@ The following SQL query also displays the discrepancy in the relationship betwee
 There is an unsurprising negative correlation between the two variables, discount and profit, shown with the following joint plot:\
 ![txt](https://github.com/carrotdip/SuperStore/blob/158783c61894cfbcfa9fa54527c3f8dd3633e555/Images/discountprofitjp.png)\
 Although the reason these states have had an ostensibly aberrant amount of discounts is unknown, it is safe to say that profitability of these states or regions will increase with less discounts, particularly discounts greater than 0.4.\
-To delve deeper into the discrepanies between profit margins across the four regions, further analysis into the customer base was performed. Here is a breakdown of profits by customer segment and region.
-![txt](URL HERE)\
-In the following pie charts, it is clear that the Central region caters more towards Corporate customers, while the other regions cater towards 
+To delve deeper into the discrepanies between profit margins across the four regions, further analysis into the customer base was performed. Here is a breakdown of profits and discounts by customer segment and region.
+![txt](https://github.com/carrotdip/SuperStore/blob/da4ec4661573917726f2b9703a1eed8e0560b60c/Images/tpbysegmentregion.png)\
+![txt](https://github.com/carrotdip/SuperStore/blob/da4ec4661573917726f2b9703a1eed8e0560b60c/Images/tdbysegmentregion.png)\
+From the first set of pie charts, it is clear that the Central region profits the most from their Corporate customers, while the other three regions profit the most from Consumer customers. This characteristic may be explained with the second set of pie charts, which displays a larger margin of discounts being provided to Consumers in the Central region, which may be contributing to the lack of profitability from these customers. However, the distribution of discounts between customer segments is fairly homogenous throughout and is likely not a causative factor in the disparities present. From these visualizations, it is clear that the amount of total discounts given to the Central regions have caused a significant decrease of profitability. However, customer segments do not seem to play an important role.
 
 ### Inventory Analysis
 To get a better idea of the best store catalog for SuperStore's new image, the following analysis was done on the category, sub-category, and item level. The BI dashboard visualization shows that the Furniture category is not performing well, as it has consistent negative values in total profits while the other categories do not share this trend. The following SQL query confirms this: \
