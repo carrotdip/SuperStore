@@ -16,9 +16,12 @@ Click [here](https://public.tableau.com/app/profile/caroline.diep/viz/BluOrangeS
 From a quick exploration of the SuperStore BI dashboard, it is abundantly clear that the East and West regions are more profitable than the Central and South regions. The Eastern and Western regions of the US are higher in almost every metric (whether that be sales, quantity purchased, and profits) except for one: discounts.\
 It was found that some states, particularly Southern and Central states, have had an abnormally large number of discounts compared to their Eastern and Western counterparts (discounts is blown up for easier readability).
 ![txt](https://github.com/carrotdip/SuperStore/blob/158783c61894cfbcfa9fa54527c3f8dd3633e555/Images/stackeddiscountprofit.png)\
+The following SQL query also displays the discrepancy in the relationship between total discounts and profits. It is clear that the Central region has had an exceptionally larger ratio between discounts and profits.
+![txt](INSERT URL HERE)
 There is an unsurprising negative correlation between the two variables, discount and profit, shown with the following joint plot:\
 ![txt](https://github.com/carrotdip/SuperStore/blob/158783c61894cfbcfa9fa54527c3f8dd3633e555/Images/discountprofitjp.png)\
-Although the reason these states have had an ostensibly aberrant amount of discounts, it is safe to say that profitability of these states will increase with less discounts, particularly discounts greater than 0.4. To delve deeper into how eash 
+Although the reason these states have had an ostensibly aberrant amount of discounts, it is safe to say that profitability of these states will increase with less discounts, particularly discounts greater than 0.4. 
+To delve deeper into how profits are affected by the category or sub_category of an item, an inventorial analysis will be performed.
 
 ### Inventory Analysis
 To get a better idea of the best store catalog for SuperStore's new image, the following analysis was done on the category, sub-category, and item level. The BI dashboard visualization shows that the Furniture category is not performing well, as it has consistent negative values in total profits while the other categories do not share this trend. The following SQL query confirms this: \
