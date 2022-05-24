@@ -23,7 +23,9 @@ The following SQL query also displays the discrepancy in the relationship betwee
 ![txt](https://github.com/carrotdip/SuperStore/blob/913ababa94cb47353596f2be025ecb86bd4ff5b3/Images/discountprofitratio.png)\
 There is an unsurprising negative correlation between the two variables, discount and profit, shown with the following joint plot:\
 ![txt](https://github.com/carrotdip/SuperStore/blob/158783c61894cfbcfa9fa54527c3f8dd3633e555/Images/discountprofitjp.png)\
-Although the reason these states have had an ostensibly aberrant amount of discounts is unknown, it is safe to say that profitability of these states or regions will increase with less discounts, particularly discounts greater than 0.4. To delve deeper into how profits are affected by the category or sub_category of an item, an inventorial analysis will be performed.
+Although the reason these states have had an ostensibly aberrant amount of discounts is unknown, it is safe to say that profitability of these states or regions will increase with less discounts, particularly discounts greater than 0.4.\
+To delve deeper into the discrepanies between profit margins across the four regions, further analysis into the customer base was performed. Here is a breakdown of profits by customer segment and region.
+![txt](URL HERE)
 
 ### Inventory Analysis
 To get a better idea of the best store catalog for SuperStore's new image, the following analysis was done on the category, sub-category, and item level. The BI dashboard visualization shows that the Furniture category is not performing well, as it has consistent negative values in total profits while the other categories do not share this trend. The following SQL query confirms this: \
