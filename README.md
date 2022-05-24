@@ -17,7 +17,7 @@ From a quick exploration of the SuperStore BI dashboard, it is abundantly clear 
 It was found that some states, particularly Southern and Central states, have had an abnormally large number of discounts compared to their Eastern and Western counterparts (discounts is blown up for easier readability).
 ![txt](https://github.com/carrotdip/SuperStore/blob/158783c61894cfbcfa9fa54527c3f8dd3633e555/Images/stackeddiscountprofit.png)\
 The following SQL query also displays the discrepancy in the relationship between total discounts and profits. It is clear that the Central region has had an exceptionally larger ratio between discounts and profits.
-![txt](INSERT HERE)\
+![txt](https://github.com/carrotdip/SuperStore/blob/913ababa94cb47353596f2be025ecb86bd4ff5b3/Images/discountprofitratio.png)\
 There is an unsurprising negative correlation between the two variables, discount and profit, shown with the following joint plot:\
 ![txt](https://github.com/carrotdip/SuperStore/blob/158783c61894cfbcfa9fa54527c3f8dd3633e555/Images/discountprofitjp.png)\
 Although the reason these states have had an ostensibly aberrant amount of discounts, it is safe to say that profitability of these states will increase with less discounts, particularly discounts greater than 0.4. 
