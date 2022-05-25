@@ -27,7 +27,8 @@ Although the reason these states have had an ostensibly aberrant amount of disco
 To delve deeper into the discrepanies between profit margins across the four regions, further analysis into the customer base was performed. Here is a breakdown of profits and discounts by customer segment and region.
 ![txt](https://github.com/carrotdip/SuperStore/blob/da4ec4661573917726f2b9703a1eed8e0560b60c/Images/tpbysegmentregion.png)\
 ![txt](https://github.com/carrotdip/SuperStore/blob/da4ec4661573917726f2b9703a1eed8e0560b60c/Images/tdbysegmentregion.png)\
-From the first set of pie charts, it is clear that the Central region profits the most from their Corporate customers, while the other three regions profit the most from Consumer customers. This characteristic may be explained with the second set of pie charts, which displays a larger margin of discounts being provided to Consumers in the Central region, which may be contributing to the lack of profitability from these customers. However, the distribution of discounts between customer segments is fairly homogenous throughout and is likely not a causative factor in the disparities present. From these visualizations, it is clear that the amount of total discounts given to the Central regions have caused a significant decrease of profitability. However, discounts by customer segments do not seem to play an important role. It may also be beneficial to cater more towards Consumer customers in the Central regions, as these customers have been shown to be fruitful in the other regions.
+From the first set of pie charts, it is clear that the Central region profits the most from their Corporate customers, while the other three regions profit the most from Consumer customers. This characteristic may be explained with the second set of pie charts, which displays a larger margin of discounts being provided to Consumers in the Central region, which may be contributing to the lack of profitability from these customers. However, the distribution of discounts between customer segments is fairly homogenous throughout and is likely not a causative factor in the disparities present.\
+From these visualizations, it is clear that the amount of total discounts given to the Central regions have caused a significant decrease of profitability. However, discounts by customer segments do not seem to play an important role. It may also be beneficial to cater more towards Consumer customers in the Central regions, as these customers have been shown to be fruitful in the other regions.
 
 ### Inventory Analysis
 To get a better idea of the best store catalog for SuperStore's new image, the following analysis was done on the category, sub-category, and item level. The BI dashboard visualization shows that the Furniture category is not performing well, as it has consistent negative values in total profits while the other categories do not share this trend. The following SQL query confirms this: \
@@ -48,10 +49,13 @@ The same was done for the specific items in the Copiers, Phones, and Accessories
 ![txt](https://github.com/carrotdip/SuperStore/blob/482a11b11fa0e337e0b19286bf3b0805707b2b3a/Images/profitablecpa.png)
 And the non-profitable:
 ![txt](https://github.com/carrotdip/SuperStore/blob/482a11b11fa0e337e0b19286bf3b0805707b2b3a/Images/unprofitablecpa.png)
+Further analyses on profitability on the item-specific level can be done easily with additional queries. Not all queries will be presented to save time and space, as many can be performed on an ad-hoc basis.
 
 ## Conclusion
+From this analysis, three actionable insights were discovered for the SuperStore that will increase profitability:
 1. Reduce discounts over 0.4, particularly in the Central region.
-2. Introduce new re-branding products* once unprofitable items are expunged from catalog list.
+2. Focus/cater towards Consumer customers in the Central region.
+3. Introduce new re-branding products* once unprofitable items are expunged from catalog list.
 
-Drawbacks: The SuperStore dataset lacks cost, return information, limiting the types of analysis able to be performed. 
+Drawbacks: The SuperStore dataset lacks cost and return information, limiting the types of analysis able to be performed. 
 *An additional dataset with market trends should be analyzed to decide which products/markets the SuperStore should focus its rebranding on.
